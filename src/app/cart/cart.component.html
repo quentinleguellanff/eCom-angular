@@ -1,0 +1,24 @@
+<p *ngIf="cartEmpty">your cart is empty please choose products to add to your cart</p>
+
+<div class="box-product-cart" *ngFor="let product of cart">
+	<div class="shop-product-picture-box">
+		<img class="shop-product-picture" [src]="product.picture" />
+	</div>
+	<div>
+		<h3 class="product-name">{{ product.name }}</h3>
+		<p>{{ product.specifications.color }}, {{ product.specifications.storage }}</p>
+		<p class="product-price">{{ product.specifications.price }}</p>
+	</div>
+	<div class="cart-button-block">
+		<button (click)="reduceQuantity(product.id)" class="plus-minus-button">-</button>
+		<div class="product-quantity">{{product.quantity}}</div>
+		<button (click)="increaseQuantity(product.id)" class="plus-minus-button">+</button>
+	</div>
+</div>
+<div *ngIf="!cartEmpty" class="cart-recap-box">
+	<p style="font-weight:bold; ">Order recap</p>
+	<div *ngFor="let product of cart">
+		<p>{{ product.quantity }} {{ product.name }}  {{ product.totalPrice }}$</p>
+	</div>
+	<p>Total price : <span style="font-weight: bold">{{totalPrice}} $</span></p>
+</div>

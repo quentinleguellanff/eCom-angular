@@ -1,0 +1,16 @@
+<div class="box-product">
+	<div class="shop-product-card" *ngFor="let product of products">
+		<div class="shop-product-picture-box">
+			<img class="shop-product-picture" [src]="product.picture" />
+		</div>
+		<p class="product-name">{{ product.name }}</p>
+		<p>Specifications</p>
+		<ul>
+			<li><p>color: {{product.specifications.color}}</p></li>
+			<li><p>weight: {{product.specifications.weight}}</p></li>
+			<li><p>storage: {{product.specifications.storage}}</p></li>
+			<li><p>price: {{product.specifications.price}}</p></li>
+		</ul>
+		<button class="add-cart-button" type="button" (click)="addToCard(product)" (mouseout)="buttonOvered(false)" (mouseover)="buttonOvered(true)">Add to cart</button>
+	</div>
+</div>
